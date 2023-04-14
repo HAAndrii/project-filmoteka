@@ -1,0 +1,92 @@
+main {
+  background-color: #F0F0F0;
+  padding-bottom: 90px;
+}
+.trending-container {
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 32px;
+    gap: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    min-width: 1280px;
+    gap: 16px;
+  }
+}
+.movie-card {
+  width: 280px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: calc(16/12);
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    margin-bottom: 0;
+  }
+  @media screen and (min-width: 1280px) {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.20;
+    width: 394px;
+    margin-bottom: 16px;
+  }
+}
+.movie__image {
+  border-radius: 5px;
+  width: 280px;
+  margin-bottom: 10px;
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    margin-bottom: 8px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 394px;
+  }
+}
+.movie__title {
+  text-transform: uppercase;
+}
+.movie__genresAndReleaseDate {
+  color: #B92F2C;
+  line-height: calc(14/12);
+  @media screen and (min-width: 768px) {
+    line-height: calc(16/12);
+  }
+  @media screen and (min-width: 1280px) {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.20;
+  }
+}
+.pagination-section{
+  display: flex;
+  justify-content: center;
+}
+.pagination__buttons {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  width: 40px;
+  height: 40px;
+  border: none;
+}
+.currentPage {
+  background-color: #B92F2C;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+
