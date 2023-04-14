@@ -10,74 +10,102 @@ const prevBtn = document.querySelector('#prev')
 
 let currentPage = 1
 
-
 function paginatorCreate(data, page) {  
   pagination.innerHTML = ''
   let buttonsArray = []
   const { total_pages } = data
-  const firstBtn = document.createElement('button')
-  const lastBtn = document.createElement('button')
-  firstBtn.classList.add(`pagination__button${1}`, 'pagination__button')
-  lastBtn.classList.add(`pagination__button${total_pages}`, 'pagination__button')
-  firstBtn.textContent = '1'
-  lastBtn.textContent = total_pages
-  pagination.append(firstBtn)
-  if(!page || page === 1) {
-    firstBtn.classList.add('currentPage')
-  } else if (page === total_pages) {
-    lastBtn.classList.add('currentPage')
-  }
-  if(!page || page <= 4){
-    
-    for (let i = 2; i <= 7; i++) {
-      const btn = document.createElement('button')
-      btn.textContent = i
-      btn.classList.add(`pagination__button${i}`, 'pagination__button')
-      buttonsArray.push(btn)
-    }
-    const dottedBtn = document.createElement('button')
-    dottedBtn.textContent = '...'
-    dottedBtn.classList.add(`pagination__button${8}`, 'pagination__button')
-    buttonsArray.push(dottedBtn)
+  
 
-  } else if (page <= (total_pages - 6)) {
-    const dottedBtnMinus = document.createElement('button')
-    dottedBtnMinus.textContent = '...'
-    dottedBtnMinus.classList.add(`pagination__button${page - 3}`, 'pagination__button')
-    buttonsArray.push(dottedBtnMinus)
-    for(let i = (page - 2); i <= (page + 2); i++) {
-      const btn = document.createElement('button')
-      btn.textContent = i
-      btn.classList.add(`pagination__button${i}`, 'pagination__button')
-      buttonsArray.push(btn)
+  if (window.innerWidth < 768) {
+    const firstBtn = document.createElement('button')
+    firstBtn.classList.add(`pagination__button${1}`, 'pagination__button')
+    firstBtn.textContent = '1'
+    pagination.append(firstBtn)
+    if(!page || page === 1) {
+      firstBtn.classList.add('currentPage')
     }
-    const dottedBtnPlus = document.createElement('button')
-    dottedBtnPlus.textContent = '...'
-    dottedBtnPlus.classList.add(`pagination__button${page + 3}}`, 'pagination__button')
-    buttonsArray.push(dottedBtnPlus)
-  } else if (page > (total_pages - 6)) {
-    let num = total_pages - 7
-    const dottedBtn = document.createElement('button')
-    dottedBtn.textContent = '...'
-    dottedBtn.classList.add(`pagination__button${num}`, 'pagination__button')
-    buttonsArray.push(dottedBtn)
-    for(let i = (total_pages - 6); i <= (total_pages - 1); i++) {
-      const btn = document.createElement('button')
-      btn.textContent = i
-      btn.classList.add(`pagination__button${i}`, 'pagination__button')
-      buttonsArray.push(btn)
+    if(!page || page <= 3) {
+      for (let i = 2; i <= 5; i++) {
+        const btn = document.createElement('button')
+        btn.textContent = i
+        btn.classList.add(`pagination__button${i}`, 'pagination__button')
+        buttonsArray.push(btn)
+      }
+    } else if (page > 3) {
+      firstBtn.style.display = 'none'
+      for(let i = (page - 2); i <= (page + 2); i++) {
+        const btn = document.createElement('button')
+        btn.textContent = i
+        btn.classList.add(`pagination__button${i}`, 'pagination__button')
+        buttonsArray.push(btn)
+      }
     }
+    pagination.append(...buttonsArray)
+  } else {
+    const firstBtn = document.createElement('button')
+    const lastBtn = document.createElement('button')
+    firstBtn.classList.add(`pagination__button${1}`, 'pagination__button')
+    lastBtn.classList.add(`pagination__button${total_pages}`, 'pagination__button')
+    firstBtn.textContent = '1'
+    lastBtn.textContent = total_pages
+    pagination.append(firstBtn)
+    if(!page || page === 1) {
+      firstBtn.classList.add('currentPage')
+    } else if (page === total_pages) {
+      lastBtn.classList.add('currentPage')
+    }
+    if(!page || page <= 4){
+      
+      for (let i = 2; i <= 7; i++) {
+        const btn = document.createElement('button')
+        btn.textContent = i
+        btn.classList.add(`pagination__button${i}`, 'pagination__button')
+        buttonsArray.push(btn)
+      }
+      const dottedBtn = document.createElement('button')
+      dottedBtn.textContent = '...'
+      dottedBtn.classList.add(`pagination__button${8}`, 'pagination__button')
+      buttonsArray.push(dottedBtn)
+  
+    } else if (page <= (total_pages - 6)) {
+      const dottedBtnMinus = document.createElement('button')
+      dottedBtnMinus.textContent = '...'
+      dottedBtnMinus.classList.add(`pagination__button${page - 3}`, 'pagination__button')
+      buttonsArray.push(dottedBtnMinus)
+      for(let i = (page - 2); i <= (page + 2); i++) {
+        const btn = document.createElement('button')
+        btn.textContent = i
+        btn.classList.add(`pagination__button${i}`, 'pagination__button')
+        buttonsArray.push(btn)
+      }
+      const dottedBtnPlus = document.createElement('button')
+      dottedBtnPlus.textContent = '...'
+      dottedBtnPlus.classList.add(`pagination__button${page + 3}}`, 'pagination__button')
+      buttonsArray.push(dottedBtnPlus)
+    } else if (page > (total_pages - 6)) {
+      let num = total_pages - 7
+      const dottedBtn = document.createElement('button')
+      dottedBtn.textContent = '...'
+      dottedBtn.classList.add(`pagination__button${num}`, 'pagination__button')
+      buttonsArray.push(dottedBtn)
+      for(let i = (total_pages - 6); i <= (total_pages - 1); i++) {
+        const btn = document.createElement('button')
+        btn.textContent = i
+        btn.classList.add(`pagination__button${i}`, 'pagination__button')
+        buttonsArray.push(btn)
+      }
+    }
+    pagination.append(...buttonsArray)
+    pagination.append(lastBtn)
   }
-  pagination.append(...buttonsArray)
-  pagination.append(lastBtn)
 }
 
 buttons.addEventListener('click', e => {
-  if(e.target.id === 'next') {
+  if(e.target.id === 'next' || e.target.classList.contains('pagArrowR')) {
     ++currentPage
     container.innerHTML = ''
     getTrendingMovies(currentPage)
-  } else if (e.target.id === 'prev' && currentPage > 1) {
+  } else if (e.target.id === 'prev'|| e.target.classList.contains('pagArrowL') && currentPage > 1) {
     --currentPage
     container.innerHTML = ''
     getTrendingMovies(currentPage)
