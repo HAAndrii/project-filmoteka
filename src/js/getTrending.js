@@ -1,6 +1,6 @@
 import axios from "axios"
 
-
+// Змінні)
 const url = 'https://api.themoviedb.org/3/trending/movie/week?api_key=d66303a9f2f21ddca222463dbeed564f'
 const genresUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d66303a9f2f21ddca222463dbeed564f&language=en-US'
 const container = document.querySelector('.trending-container')
@@ -9,6 +9,8 @@ const pagination = document.querySelector('#paging')
 const prevBtn = document.querySelector('#prev')
 let currentPage = 1
 
+
+// Функція для створення кнопок пагінації (раджу туди не дивитися бо можна поїхати мізками)
 function paginatorCreate(data, page) {  
   pagination.innerHTML = ''
   let buttonsArray = []
@@ -98,7 +100,7 @@ function paginatorCreate(data, page) {
     pagination.append(lastBtn)
   }
 }
-
+// Ліснер для кнопок назад та вперед 
 buttons.addEventListener('click', e => {
   if(e.target.id === 'next' || e.target.classList.contains('pagArrowR')) {
     ++currentPage
@@ -110,7 +112,7 @@ buttons.addEventListener('click', e => {
     getTrendingMovies(currentPage)
   }
 })
-
+// Ліснер для кнопок пагінації
 pagination.addEventListener('click', e => {
   if (e.target.textContent === currentPage) {
     return
@@ -122,7 +124,7 @@ pagination.addEventListener('click', e => {
     getTrendingMovies(currentPage)
   }
 })
-
+// Запит на сервер та робота з респонсом
 async function getTrendingMovies(page) {
   const options = {
     params: {
@@ -158,7 +160,7 @@ async function getTrendingMovies(page) {
     console.log(error);
   }
 }
-
+// Функція додавання респонсу до розмітки
 function appendTrendingGallery(result) {
   container.insertAdjacentHTML(
     'afterbegin',
@@ -190,6 +192,6 @@ function appendTrendingGallery(result) {
   );
 
 }
-
+// перший виклик функції при завантаженні сторінки 
 getTrendingMovies()
 
