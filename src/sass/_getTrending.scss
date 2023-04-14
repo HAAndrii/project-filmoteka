@@ -86,6 +86,13 @@
   height: 40px;
   border: none;
   background-color: #FfFfFf;
+  &:hover {
+    color: #FfFfFf;
+    background-color: #B92F2C;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+  }
 }
 .currentPage {
   color: #FfFfFf;
@@ -100,15 +107,37 @@
   background-color: #F7F7F7;
   border-radius: 5px;
   position: relative;
+  &:hover {
+    color: #FfFfFf;
+    background-color: #B92F2C;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+  }
+  &:hover > .pagination-arrows {
+    stroke: #F7F7F7;
+  }
 }
 #prev {
   color: #F7F7F7;
   background-color: #F7F7F7;
   border-radius: 5px;
   position: relative;
+  &:hover {
+    color: #FfFfFf;
+    background-color: #B92F2C;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+  }
+  &:hover > .pagination-arrows {
+    stroke: #F7F7F7;
+  }
 }
 .pagination-arrows {
   top: 12px;
   left: 12px;
   position: absolute;
+  stroke: black;
+
 }

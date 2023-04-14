@@ -7,7 +7,6 @@ const container = document.querySelector('.trending-container')
 const buttons = document.querySelector('#pagination-buttons')
 const pagination = document.querySelector('#paging')
 const prevBtn = document.querySelector('#prev')
-
 let currentPage = 1
 
 function paginatorCreate(data, page) {  
