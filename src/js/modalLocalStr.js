@@ -30,7 +30,6 @@ function addToWatchedLS (result) {
         fileWatchedLS = {...JSON.parse(localStorage.getItem(WATCHED_LS))};
         fileWatchedLS[result.id] = result;
         localStorage.setItem(WATCHED_LS, JSON.stringify(fileWatchedLS));
-        console.log(fileWatchedLS);
         Notify.info(`${result.title}: has been watched.`)
         
         return;
@@ -48,7 +47,6 @@ function addToQueueLS (result) {
         fileQueueLS = {...JSON.parse(localStorage.getItem(QUEUE_LS))};
         fileQueueLS[result.id] = result;
         localStorage.setItem(QUEUE_LS, JSON.stringify(fileQueueLS));
-        console.log(fileQueueLS);
         Notify.info(`${result.title}: is added to the watch queue.`)
         
         return;
