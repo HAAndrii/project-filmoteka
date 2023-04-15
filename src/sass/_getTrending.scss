@@ -58,10 +58,20 @@
 }
 .movie__title {
   text-transform: uppercase;
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: calc(16/12);
+  letter-spacing: 0em;
+  text-align: left;
 }
 .movie__genresAndReleaseDate {
   color: #B92F2C;
   line-height: calc(14/12);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0em;
+  text-align: left;
   @media screen and (min-width: 768px) {
     line-height: calc(16/12);
   }
