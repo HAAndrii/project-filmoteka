@@ -15,8 +15,11 @@ function paginatorCreate(data, page) {
   pagination.innerHTML = ''
   let buttonsArray = []
   const { total_pages } = data
-  
-
+  if (!page || page === 1) {
+    prevBtn.disabled = true
+  } else {
+    prevBtn.disabled = false
+  }
   if (window.innerWidth < 768) {
     const firstBtn = document.createElement('button')
     firstBtn.classList.add(`pagination__button${1}`, 'pagination__button')
@@ -24,7 +27,7 @@ function paginatorCreate(data, page) {
     pagination.append(firstBtn)
     if(!page || page === 1) {
       firstBtn.classList.add('currentPage')
-    }
+    } 
     if(!page || page <= 3) {
       for (let i = 2; i <= 5; i++) {
         const btn = document.createElement('button')
