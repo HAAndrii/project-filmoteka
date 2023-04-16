@@ -67,6 +67,21 @@ button {
     padding: 40px 12px;
   }
 }
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    gap: 68px;
+  }
+  @media screen and (min-width: 1280px) {
+    flex-direction: row;
+    display: flex;
+    gap: 16px;
+  }
+}
 
 .modal-close-button {
   position: absolute;
