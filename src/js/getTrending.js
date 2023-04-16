@@ -3,7 +3,7 @@ import axios from "axios"
 // Змінні)
 const url = 'https://api.themoviedb.org/3/trending/movie/week?api_key=d66303a9f2f21ddca222463dbeed564f'
 const genresUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d66303a9f2f21ddca222463dbeed564f&language=en-US'
-const container = document.querySelector('.trending-container')
+const trendingContainer = document.querySelector('.trending-container')
 const buttons = document.querySelector('#pagination-buttons')
 const pagination = document.querySelector('#paging')
 const prevBtn = document.querySelector('#prev')
@@ -107,11 +107,11 @@ function paginatorCreate(data, page) {
 buttons.addEventListener('click', e => {
   if(e.target.id === 'next' || e.target.classList.contains('pagArrowR')) {
     ++currentPage
-    container.innerHTML = ''
+    trendingContainer.innerHTML = ''
     getTrendingMovies(currentPage)
   } else if (e.target.id === 'prev'|| e.target.classList.contains('pagArrowL') && currentPage > 1) {
     --currentPage
-    container.innerHTML = ''
+    trendingContainer.innerHTML = ''
     getTrendingMovies(currentPage)
   }
 })
@@ -123,7 +123,7 @@ pagination.addEventListener('click', e => {
     const string = e.target.classList[0]
     const btnNum = string.slice(18)
     currentPage = Number.parseInt(btnNum)
-    container.innerHTML = ''
+    trendingContainer.innerHTML = ''
     getTrendingMovies(currentPage)
   }
 })
@@ -165,7 +165,7 @@ async function getTrendingMovies(page) {
 }
 // Функція додавання респонсу до розмітки
 function appendTrendingGallery(result) {
-  container.insertAdjacentHTML(
+  trendingContainer.insertAdjacentHTML(
     'afterbegin',
     result
       .map(({title, poster_path, release_date, id, genres}) => {
@@ -184,10 +184,11 @@ function appendTrendingGallery(result) {
             class="movie__image"
             src="https://image.tmdb.org/t/p/w500${poster_path}" 
             alt="${title}" 
-            loading="lazy"          
+            loading="lazy"
+            data-id="${id}"         
             />
-            <p class="movie__title">${title}</p>
-            <p class="movie__genresAndReleaseDate">${finGenres} | ${releaseDate}</p>
+            <p class="movie__title" data-id="${id}">${title}</p>
+            <p class="movie__genresAndReleaseDate" data-id="${id}">${finGenres} | ${releaseDate}</p>
           </div>
         `;
       })

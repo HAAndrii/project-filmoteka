@@ -10,8 +10,8 @@ export function modal() {
   window.addEventListener('keydown', handleEscPress);
 
   function toggleModal() {
-    refs.backdrop.classList.toggle('is-hidden');
-    removeEventListeners();
+    refs.backdrop.classList.add('is-hidden');
+    // removeEventListeners();
   }
 
   function handleClickOutside(event) {
@@ -26,9 +26,9 @@ export function modal() {
     }
   }
 
-  function removeEventListeners() {
-    refs.closeBtn.removeEventListener('click', toggleModal);
-    refs.backdrop.removeEventListener('click', handleClickOutside);
-    window.removeEventListener('keydown', handleEscPress);
-  }
+  // function removeEventListeners() {
+  //   refs.closeBtn.removeEventListener('click', toggleModal);
+  //   refs.backdrop.removeEventListener('click', handleClickOutside);
+  //   window.removeEventListener('keydown', handleEscPress);
+  // }
 }
