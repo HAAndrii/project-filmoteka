@@ -1,10 +1,10 @@
 import { appendTrendingGallery, container } from './getTrending';
 
-const watchedBtn = document.querySelector('.library-button__watched');
-const queueBtn = document.querySelector('.library-button__queue');
+const watchedBtnEl = document.querySelector('.library-button__watched');
+const queueBtnEl = document.querySelector('.library-button__queue');
 
-watchedBtn.addEventListener('click', renderWatchedfilm);
-queueBtn.addEventListener('click', renderQueuefilm);
+watchedBtnEl.addEventListener('click', renderWatchedfilm);
+queueBtnEl.addEventListener('click', renderQueuefilm);
 
 function renderWatchedfilm() {
   container.innerHTML = '';
