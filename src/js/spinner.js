@@ -1,5 +1,5 @@
 const loader = document.querySelector('.loader');
-
+export { loader }
 function fnDelete() {
 
     setTimeout(() => {
