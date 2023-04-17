@@ -6,4 +6,4 @@ import renderLocalStr from './js/renderLocalStr';
 import modalMovie from './js/modalMovie'
 modal();
 import spinner from './js/spinner';
-import footer from './js/footer';
+// import footer from './js/footer';

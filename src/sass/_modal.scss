@@ -35,7 +35,6 @@ button {
 .modal {
   display: block;
   position: absolute;
-
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -47,7 +46,13 @@ button {
 
   padding: 48px 20px 40px 20px;
 
+  @media screen and (max-width: 767.9px) {
+    max-height: 450px;
+    overflow-y: scroll;
+  }
+
   @media screen and (min-width: 768px) {
+    overflow: none;
     display: flex;
     gap: 68px;
 

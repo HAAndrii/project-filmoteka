@@ -1,4 +1,4 @@
-import { appendTrendingGallery, container } from './getTrending';
+import { container } from './getTrending';
 
 const watchedBtnEl = document.querySelector('.library-button__watched');
 const queueBtnEl = document.querySelector('.library-button__queue');
@@ -6,7 +6,7 @@ const queueBtnEl = document.querySelector('.library-button__queue');
 watchedBtnEl.addEventListener('click', renderWatchedfilm);
 queueBtnEl.addEventListener('click', renderQueuefilm);
 
-function renderWatchedfilm() {
+export function renderWatchedfilm() {
   container.innerHTML = '';
 
   const savedWatchFilm = JSON.parse(localStorage.getItem('watched'));

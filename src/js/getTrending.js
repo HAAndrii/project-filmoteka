@@ -1,4 +1,5 @@
 import axios from 'axios';
+import spiner from "./spinner"
 
 // Змінні)
 const url =
@@ -12,17 +13,6 @@ const pagination = document.querySelector('#paging');
 const prevBtn = document.querySelector('#prev');
 let currentPage = 1;
 
-//import axios from "axios"
-//import spiner from "./spinner"
-
-// Змінні)
-//const url = 'https://api.themoviedb.org/3/trending/movie/week?api_key=d66303a9f2f21ddca222463dbeed564f'
-//const genresUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d66303a9f2f21ddca222463dbeed564f&language=en-US'
-//const trendingContainer = document.querySelector('.trending-container')
-//const buttons = document.querySelector('#pagination-buttons')
-//const pagination = document.querySelector('#paging')
-//const prevBtn = document.querySelector('#prev')
-//let currentPage = 1
 
 
 
@@ -155,8 +145,7 @@ pagination.addEventListener('click', e => {
   }
 });
 // Запит на сервер та робота з респонсом
-async function getTrendingMovies(page) {
-  spiner.fnLoad();
+export default async function getTrendingMovies(page) {
   const options = {
     params: {
       page,
@@ -189,6 +178,7 @@ async function getTrendingMovies(page) {
   } catch (error) {
     console.log(error);
   }
+  spiner.fnLoad();
 }
 // Функція додавання респонсу до розмітки
 

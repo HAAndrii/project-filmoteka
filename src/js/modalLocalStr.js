@@ -11,8 +11,13 @@ const filmID = document.querySelector('.modal-text-content-id');
 const watchedBtn = document.querySelector('.modal-buttons-one');
 const queueBtn = document.querySelector('.modal-buttons-two');
 
-watchedBtn.addEventListener('click', addWatched);
-queueBtn.addEventListener('click', addQueue);
+if (watchedBtn) {
+  watchedBtn.addEventListener('click', addWatched);
+}
+if (queueBtn) {
+  queueBtn.addEventListener('click', addQueue);
+}
+
 
 function addWatched() {
   getFilm(filmID.textContent)
@@ -35,7 +40,7 @@ function addToWatchedLS(result) {
     localStorage.setItem(WATCHED_LS, JSON.stringify(fileWatchedLS));
     console.log(fileWatchedLS);
     Notify.info(`${result.title}: has been watched.`);
-
+    
     return;
   }
 
