@@ -4,3 +4,5 @@ import { modal } from './js/modal';
 import modalMovie from './js/modalMovie'
 modal();
 import spinner from './js/spinner';
+import footer from './js/footer';
+
