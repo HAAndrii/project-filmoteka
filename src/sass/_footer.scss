@@ -29,6 +29,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 1.16;
+    display: block;
     @media screen and (min-width: 768px) {
         font-size: 16px;
     }
@@ -62,9 +63,12 @@
     max-height: 170px;
     min-width: 50px;
 }
+.list-students li{
+    min-width: 130px;
+}
 
 // модалка
-body.show-modal .backdrop {
+body.show-modal .backdrop-footer{
     opacity: 1;
     visibility: visible;
     pointer-events: initial;
@@ -75,7 +79,7 @@ body.show-modal .modal-footer{
 transform: scale(1);
 }
 
-.backdrop{
+.backdrop-footer{
 display: flex;
 justify-content: center;
 align-items: center;
