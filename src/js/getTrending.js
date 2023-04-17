@@ -1,5 +1,5 @@
 import axios from 'axios';
-import spiner from "./spinner"
+import spiner from './spinner';
 
 // Змінні)
 const url =
@@ -12,9 +12,6 @@ const buttons = document.querySelector('#pagination-buttons');
 const pagination = document.querySelector('#paging');
 const prevBtn = document.querySelector('#prev');
 let currentPage = 1;
-
-
-
 
 // Функція для створення кнопок пагінації (раджу туди не дивитися бо можна поїхати мізками)
 function paginatorCreate(data, page) {
@@ -118,7 +115,6 @@ function paginatorCreate(data, page) {
 }
 // Ліснер для кнопок назад та вперед
 buttons.addEventListener('click', e => {
-
   if (e.target.id === 'next' || e.target.classList.contains('pagArrowR')) {
     ++currentPage;
     container.innerHTML = '';
@@ -151,6 +147,7 @@ export default async function getTrendingMovies(page) {
       page,
     },
   };
+  spiner.fnLoad();
   try {
     const response = await axios.get(url, options);
     const result = response.data.results;
@@ -178,15 +175,13 @@ export default async function getTrendingMovies(page) {
   } catch (error) {
     console.log(error);
   }
-  spiner.fnLoad();
 }
 // Функція додавання респонсу до розмітки
 
 export function appendTrendingGallery(result) {
   container.insertAdjacentHTML(
-
-//function appendTrendingGallery(result) {
-//  trendingContainer.insertAdjacentHTML(
+    //function appendTrendingGallery(result) {
+    //  trendingContainer.insertAdjacentHTML(
 
     'afterbegin',
     result
@@ -216,7 +211,7 @@ export function appendTrendingGallery(result) {
       })
       .join('')
   );
-//  spiner.fnDelete();
+  spiner.fnDelete();
 }
 // перший виклик функції при завантаженні сторінки
 getTrendingMovies();

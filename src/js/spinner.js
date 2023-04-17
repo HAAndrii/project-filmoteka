@@ -1,16 +1,13 @@
-const loader = document.querySelector('.loader');
-export { loader }
+const loader = document.querySelector('#loader');
+//export { loader }
 function fnDelete() {
-
-    setTimeout(() => {
-        loader.classList.add('loader-hidden');
-    }, 500);
-     }
-
-function fnLoad() {    
-    loader.classList.remove('loader-hidden');
+  setTimeout(() => {
+    loader.classList.remove('loader');
+  }, 500);
 }
 
-export default {  fnDelete, fnLoad };
+function fnLoad() {
+  loader.classList.add('loader');
+}
 
-
+export default { fnDelete, fnLoad };
