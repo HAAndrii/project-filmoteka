@@ -64,7 +64,7 @@
 }
 
 // модалка
-body.show-modal .backdrop {
+body.show-modal .footer-backdrop {
     opacity: 1;
     visibility: visible;
     pointer-events: initial;
@@ -75,7 +75,7 @@ body.show-modal .modal-footer{
 transform: scale(1);
 }
 
-.backdrop{
+.footer-backdrop{
 display: flex;
 justify-content: center;
 align-items: center;
