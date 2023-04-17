@@ -4,14 +4,12 @@ export function modal() {
     closeBtn: document.querySelector('.modal-close-button'),
   };
 
-  refs.closeBtn.addEventListener('click', toggleModal);
-  refs.backdrop.addEventListener('click', handleClickOutside);
-
-  window.addEventListener('keydown', handleEscPress);
+  addEventListeners();
 
   function toggleModal() {
-    refs.backdrop.classList.toggle('is-hidden');
     removeEventListeners();
+    refs.backdrop.classList.toggle('is-hidden');
+    addEventListeners();
   }
 
   function handleClickOutside(event) {
@@ -21,9 +19,18 @@ export function modal() {
   }
 
   function handleEscPress(event) {
-    if (event.code === 'Escape') {
+    if (
+      event.code === 'Escape' &&
+      !refs.backdrop.classList.contains('is-hidden')
+    ) {
       toggleModal();
     }
+  }
+
+  function addEventListeners() {
+    refs.closeBtn.addEventListener('click', toggleModal);
+    refs.backdrop.addEventListener('click', handleClickOutside);
+    window.addEventListener('keydown', handleEscPress);
   }
 
   function removeEventListeners() {

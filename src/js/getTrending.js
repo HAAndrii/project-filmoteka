@@ -12,6 +12,20 @@ const pagination = document.querySelector('#paging');
 const prevBtn = document.querySelector('#prev');
 let currentPage = 1;
 
+//import axios from "axios"
+//import spiner from "./spinner"
+
+// Змінні)
+//const url = 'https://api.themoviedb.org/3/trending/movie/week?api_key=d66303a9f2f21ddca222463dbeed564f'
+//const genresUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d66303a9f2f21ddca222463dbeed564f&language=en-US'
+//const trendingContainer = document.querySelector('.trending-container')
+//const buttons = document.querySelector('#pagination-buttons')
+//const pagination = document.querySelector('#paging')
+//const prevBtn = document.querySelector('#prev')
+//let currentPage = 1
+
+
+
 // Функція для створення кнопок пагінації (раджу туди не дивитися бо можна поїхати мізками)
 function paginatorCreate(data, page) {
   pagination.innerHTML = '';
@@ -114,6 +128,7 @@ function paginatorCreate(data, page) {
 }
 // Ліснер для кнопок назад та вперед
 buttons.addEventListener('click', e => {
+
   if (e.target.id === 'next' || e.target.classList.contains('pagArrowR')) {
     ++currentPage;
     container.innerHTML = '';
@@ -141,6 +156,7 @@ pagination.addEventListener('click', e => {
 });
 // Запит на сервер та робота з респонсом
 async function getTrendingMovies(page) {
+  spiner.fnLoad();
   const options = {
     params: {
       page,
@@ -175,8 +191,13 @@ async function getTrendingMovies(page) {
   }
 }
 // Функція додавання респонсу до розмітки
+
 export function appendTrendingGallery(result) {
   container.insertAdjacentHTML(
+
+//function appendTrendingGallery(result) {
+//  trendingContainer.insertAdjacentHTML(
+
     'afterbegin',
     result
       .map(({ title, poster_path, release_date, id, genres }) => {
@@ -195,15 +216,17 @@ export function appendTrendingGallery(result) {
             class="movie__image"
             src="https://image.tmdb.org/t/p/w500${poster_path}" 
             alt="${title}" 
-            loading="lazy"          
+            loading="lazy"
+            data-id="${id}"         
             />
-            <p class="movie__title">${title}</p>
-            <p class="movie__genresAndReleaseDate">${finGenres} | ${releaseDate}</p>
+            <p class="movie__title" data-id="${id}">${title}</p>
+            <p class="movie__genresAndReleaseDate" data-id="${id}">${finGenres} | ${releaseDate}</p>
           </div>
         `;
       })
       .join('')
   );
+//  spiner.fnDelete();
 }
 // перший виклик функції при завантаженні сторінки
 getTrendingMovies();
