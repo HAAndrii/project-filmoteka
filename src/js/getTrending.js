@@ -1,4 +1,5 @@
 import axios from "axios"
+import spiner from "./spinner"
 
 // Змінні)
 const url = 'https://api.themoviedb.org/3/trending/movie/week?api_key=d66303a9f2f21ddca222463dbeed564f'
@@ -129,6 +130,7 @@ pagination.addEventListener('click', e => {
 })
 // Запит на сервер та робота з респонсом
 async function getTrendingMovies(page) {
+  spiner.fnLoad();
   const options = {
     params: {
       page
@@ -146,8 +148,7 @@ async function getTrendingMovies(page) {
         for (let i = 0; i < genresArray.length; i++) {
           if (el2 === genresArray[i].id) {
             el.genres.push(genresArray[i].name)
-          }
-          
+          } 
         }
       })
     });
@@ -158,7 +159,7 @@ async function getTrendingMovies(page) {
     window.scrollTo({
       top: 0,
       behavior: "smooth"
-  });
+    }); 
   } catch (error) {
     console.log(error);
   }
@@ -193,7 +194,7 @@ function appendTrendingGallery(result) {
       })
       .join(''),
   );
-
+  spiner.fnDelete();
 }
 // перший виклик функції при завантаженні сторінки 
 getTrendingMovies()
