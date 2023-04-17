@@ -20,7 +20,6 @@ function appendMovieCard(data) {
   const votesAvgFixed = vote_average.toFixed(1)
   const popularityFixed = popularity.toFixed(0)
   const genre = genres[0].name
-  console.log(genre);
   const modalMarkup = `
   <div class="modal-image">
     <img 
@@ -79,10 +78,8 @@ async function getMovieById (event) {
     movieBackdrop.classList.toggle('is-hidden')
     try {
       const id = event.target.dataset.id
-      console.log(id);
       const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`)
       const data = response.data
-      console.log(data);
       
       appendMovieCard(data)
 
