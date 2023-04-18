@@ -26,7 +26,7 @@ export function makePagination(totalPages, currentPage, callback) {
 
   buttons += renderBtn(currentPage - 1, leftArrowSvg, 'pag-button--arrow');
 
-  if (window.innerWidth < 768) {
+  if (window.innerWidth > 768) {
     if (startButton > 1) {
       buttons += renderBtn(1);
       if (startButton > 2) {
@@ -43,7 +43,7 @@ export function makePagination(totalPages, currentPage, callback) {
     );
   }
 
-  if (window.innerWidth < 768) {
+  if (window.innerWidth > 768) {
     if (endButton < totalPages) {
       if (endButton < totalPages - 1) {
         buttons += `<span>…</span>`;
