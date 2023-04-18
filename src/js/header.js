@@ -1,13 +1,19 @@
+//<<<<<<< search-film-by-keywords
 import clearSectionContainer from './clearSectionContainer';
-import { getTrendingMovies } from './getTrending';
+//import { getTrendingMovies } from './getTrending';
 import { getFilmsByKeywords } from './getFilmByKeywords';
 
+//=======
+import getTrendingMovies from "./getTrending";
+import { renderWatchedfilm } from "./renderLocalStr";
+//>>>>>>> main
 // Header refs
 const homeBtn = document.querySelector('#home-btn');
 const libraryBtn = document.querySelector('#library-btn');
 const searchForm = document.querySelector('#search-form');
 const libraryButtons = document.querySelector('#library-buttons');
 const logoEl = document.querySelector('#header-logo');
+//<<<<<<< search-film-by-keywords
 export const searchSectionContainer = document.querySelector(
   '.search-section__container'
 );
@@ -20,6 +26,9 @@ const searchInput = document.querySelector('.search-form__input');
 
 export let queryVal = '';
 
+//=======
+const buttons = document.querySelector('#pagination-buttons');
+//>>>>>>> main
 // Functions for header
 
 function onLibraryBtnClick() {
@@ -28,6 +37,8 @@ function onLibraryBtnClick() {
   libraryButtons.classList.remove('visually-hidden');
   searchForm.classList.add('visually-hidden');
   logoEl.classList.add('header-logo--library');
+  buttons.style.display = 'none'
+  renderWatchedfilm()
 }
 
 function onHomeBtnClick() {
@@ -36,13 +47,18 @@ function onHomeBtnClick() {
   libraryButtons.classList.add('visually-hidden');
   searchForm.classList.remove('visually-hidden');
   logoEl.classList.remove('header-logo--library');
+//<<<<<<< search-film-by-keywords
 
   trendingSectionContainer.classList.remove('visually-hidden');
   paginationSection.classList.remove('visually-hidden');
   clearSectionContainer(searchSectionContainer);
   clearSectionContainer(searchPaginationSection);
   searchInput.value = '';
-  getTrendingMovies();
+  //getTrendingMovies();
+//=======
+  buttons.style.display = 'flex'
+  getTrendingMovies()
+//>>>>>>> main
 }
 
 function onFormSubmit(e) {

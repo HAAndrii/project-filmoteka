@@ -1,4 +1,5 @@
 import axios from 'axios';
+import spiner from './spinner';
 
 // Змінні)
 const url =
@@ -6,6 +7,7 @@ const url =
 const genresUrl =
   'https://api.themoviedb.org/3/genre/movie/list?api_key=d66303a9f2f21ddca222463dbeed564f&language=en-US';
 const container = document.querySelector('.trending-container');
+export { container };
 const buttons = document.querySelector('#pagination-buttons');
 const pagination = document.querySelector('#paging');
 const prevBtn = document.querySelector('#prev');
@@ -16,7 +18,11 @@ function paginatorCreate(data, page) {
   pagination.innerHTML = '';
   let buttonsArray = [];
   const { total_pages } = data;
-
+  if (!page || page === 1) {
+    prevBtn.disabled = true;
+  } else {
+    prevBtn.disabled = false;
+  }
   if (window.innerWidth < 768) {
     const firstBtn = document.createElement('button');
     firstBtn.classList.add(`pagination__button${1}`, 'pagination__button');
@@ -135,12 +141,16 @@ pagination.addEventListener('click', e => {
   }
 });
 // Запит на сервер та робота з респонсом
-export async function getTrendingMovies(page) {
+
+//export async function getTrendingMovies(page) {
+
+export default async function getTrendingMovies(page) {
   const options = {
     params: {
       page,
     },
   };
+  spiner.fnLoad();
   try {
     const response = await axios.get(url, options);
     const result = response.data.results;
@@ -160,7 +170,10 @@ export async function getTrendingMovies(page) {
     appendTrendingGallery(result);
     paginatorCreate(data, page);
     const currentPage = document.querySelector(`.pagination__button${page}`);
-    currentPage.classList.add('currentPage');
+    if (currentPage) {
+      currentPage.classList.add('currentPage');
+    }
+
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
@@ -170,8 +183,12 @@ export async function getTrendingMovies(page) {
   }
 }
 // Функція додавання респонсу до розмітки
-function appendTrendingGallery(result) {
+
+export function appendTrendingGallery(result) {
   container.insertAdjacentHTML(
+    //function appendTrendingGallery(result) {
+    //  trendingContainer.insertAdjacentHTML(
+
     'afterbegin',
     result
       .map(({ title, poster_path, release_date, id, genres }) => {
@@ -190,15 +207,17 @@ function appendTrendingGallery(result) {
             class="movie__image"
             src="https://image.tmdb.org/t/p/w500${poster_path}" 
             alt="${title}" 
-            loading="lazy"          
+            loading="lazy"
+            data-id="${id}"         
             />
-            <p class="movie__title">${title}</p>
-            <p class="movie__genresAndReleaseDate">${finGenres} | ${releaseDate}</p>
+            <p class="movie__title" data-id="${id}">${title}</p>
+            <p class="movie__genresAndReleaseDate" data-id="${id}">${finGenres} | ${releaseDate}</p>
           </div>
         `;
       })
       .join('')
   );
+  spiner.fnDelete();
 }
 // перший виклик функції при завантаженні сторінки
 getTrendingMovies();

@@ -35,7 +35,6 @@ button {
 .modal {
   display: block;
   position: absolute;
-
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -47,7 +46,13 @@ button {
 
   padding: 48px 20px 40px 20px;
 
+  @media screen and (max-width: 767.9px) {
+    max-height: 450px;
+    overflow-y: scroll;
+  }
+
   @media screen and (min-width: 768px) {
+    overflow: none;
     display: flex;
     gap: 68px;
 
@@ -65,6 +70,21 @@ button {
     height: 558px;
 
     padding: 40px 12px;
+  }
+}
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    gap: 68px;
+  }
+  @media screen and (min-width: 1280px) {
+    flex-direction: row;
+    display: flex;
+    gap: 16px;
   }
 }
 
@@ -195,13 +215,16 @@ button {
   display: flex;
   gap: 4px;
 
-  @media screen and (min_width: 768px) {
+  @media screen and (min-width: 768px) {
     gap: 8px;
   }
 
   & button {
-    display: flex;
+    display: block;
     margin-top: 20px;
+
+
+
 
     height: 34px;
 
@@ -214,17 +237,18 @@ button {
 
     cursor: pointer;
 
-    @media screen and (min_width: 768px) {
+    @media screen and (min-width: 768px) {
       height: 38px;
     }
 
-    @media screen and (min_width: 1280px) {
+    @media screen and (min-width: 1280px) {
       height: 42px;
     }
   }
 
   &-one {
     width: 125px;
+    margin-left: auto;
 
     background-color: #b92f2c;
     border: none;
@@ -232,27 +256,67 @@ button {
 
     color: #ffffff;
 
-    @media screen and (min_width: 768px) {
+    @media screen and (min-width: 768px) {
       width: 137px;
     }
 
-    @media screen and (min_width: 1280px) {
+    @media screen and (min-width: 1280px) {
       width: 165px;
     }
   }
 
   &-two {
     width: 111px;
+    margin-right: auto;
 
     border: 1px solid #000000;
     color: #b92f2c;
 
-    @media screen and (min_width: 768px) {
+    @media screen and (min-width: 768px) {
       width: 119px;
     }
 
-    @media screen and (min_width: 1280px) {
+    @media screen and (min-width: 1280px) {
       width: 134px;
     }
   }
+
+  &-watchTreiler{
+    display: flex;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+
+    height: 34px;
+    width: 150px;
+
+    border-radius: 50px;
+
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    line-height: 1.15;
+
+    cursor: pointer;
+
+    border: 1px solid #000000;
+    color: #fff;
+
+
+   background-color: #011126;
+
+    @media screen and (min-width: 768px) {
+      height: 38px;
+      width: 150px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      height: 42px;
+      width: 150px;
+    }
+
+  }
+
 }
+
+
