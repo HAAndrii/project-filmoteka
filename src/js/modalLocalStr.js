@@ -1,5 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+export function modalLocalStr () {
 const API_KEY = 'd66303a9f2f21ddca222463dbeed564f';
 const WATCHED_LS = "watched";
 const QUEUE_LS = "queue";
@@ -9,11 +10,19 @@ let fileQueueLS = {};
 
 
 const filmID = document.querySelector('.modal-text-content-id');
-const watchedBtn = document.querySelector('.modal-buttons-one');
-const queueBtn = document.querySelector('.modal-buttons-two');
+const watchedBtn001 = document.querySelector('.modal-buttons-one');
+const queueBtn001 = document.querySelector('.modal-buttons-two');
 
+
+watchedBtn001.addEventListener('click', addWatched);
+
+queueBtn001.addEventListener('click', addQueue);
+
+<<<<<<< Updated upstream
 watchedBtn.addEventListener('click', addWatched);
 queueBtn.addEventListener('click', addQueue);
+=======
+>>>>>>> Stashed changes
 
 
 
@@ -77,6 +86,13 @@ function getFilm(id) {
             throw new Error()
         }
 
+<<<<<<< Updated upstream
         return response.json()
     })
 }
+=======
+    return response.json();
+  });
+}
+}
+>>>>>>> Stashed changes
