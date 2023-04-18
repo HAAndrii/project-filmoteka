@@ -1,9 +1,13 @@
-window.addEventListener('load', () => {
-    const loader = document.querySelector('.loader');
+const loader = document.querySelector('#loader');
+//export { loader }
+function fnDelete() {
+  setTimeout(() => {
+    loader.classList.remove('loader');
+  }, 500);
+}
 
-    loader.classList.add('loader-hidden');
+function fnLoad() {
+  loader.classList.add('loader');
+}
 
-    loader.addEventListener('transitionend', () => {
-        loader.remove();
-    })
-})
+export default { fnDelete, fnLoad };

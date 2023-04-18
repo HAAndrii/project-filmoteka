@@ -1,9 +1,9 @@
-import axios from "axios"
-const trendingContainer = document.querySelector('.trending-container')
-const movieBackdrop = document.querySelector('#movie-backdrop')
-const apiKey = 'd66303a9f2f21ddca222463dbeed564f'
-const movieModal = document.querySelector('.modal-content')
-
+import axios from 'axios';
+import { modalLocalStr } from './modalLocalStr';
+const trendingContainer = document.querySelector('.trending-container');
+const movieBackdrop = document.querySelector('#movie-backdrop');
+const apiKey = 'd66303a9f2f21ddca222463dbeed564f';
+const movieModal = document.querySelector('.modal-content');
 
 function appendMovieCard(data) {
   const {
@@ -16,11 +16,10 @@ function appendMovieCard(data) {
     popularity,
     overview,
     genres,
-  } = data
-  const votesAvgFixed = vote_average.toFixed(1)
-  const popularityFixed = popularity.toFixed(0)
-  const genre = genres[0].name
-  console.log(genre);
+  } = data;
+  const votesAvgFixed = vote_average.toFixed(1);
+  const popularityFixed = popularity.toFixed(0);
+  const genre = genres[0].name;
   const modalMarkup = `
   <div class="modal-image">
     <img 
@@ -62,40 +61,33 @@ function appendMovieCard(data) {
     </a>
     
   </div>
-`
+`;
 
-
-  movieModal.insertAdjacentHTML('beforeend', modalMarkup)
-
+  movieModal.insertAdjacentHTML('beforeend', modalMarkup);
+  modalLocalStr();
 }
 
-
-async function getMovieById (event) {
-  movieModal.innerHTML = ''
-  if (event.target.classList.contains('movie-card') || 
-  event.target.classList.contains('movie__image') || 
-  event.target.classList.contains('movie__title') || 
-  event.target.classList.contains('movie__genresAndReleaseDate')) {
-    movieBackdrop.classList.toggle('is-hidden')
+async function getMovieById(event) {
+  movieModal.innerHTML = '';
+  if (
+    event.target.classList.contains('movie-card') ||
+    event.target.classList.contains('movie__image') ||
+    event.target.classList.contains('movie__title') ||
+    event.target.classList.contains('movie__genresAndReleaseDate')
+  ) {
+    movieBackdrop.classList.toggle('is-hidden');
     try {
-      const id = event.target.dataset.id
-      console.log(id);
-      const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`)
-      const data = response.data
-      console.log(data);
-      
-      appendMovieCard(data)
+      const id = event.target.dataset.id;
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`
+      );
+      const data = response.data;
 
-
-
-
-
+      appendMovieCard(data);
     } catch (error) {
       console.log(error);
     }
-    
-  } else return
+  } else return;
 }
 
-
-trendingContainer.addEventListener('click', getMovieById)
+trendingContainer.addEventListener('click', getMovieById);
