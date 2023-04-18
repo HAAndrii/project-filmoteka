@@ -45,11 +45,12 @@ function appendChoiceFilm(result) {
               <img 
               class="movie__image"
               src="https://image.tmdb.org/t/p/w500${poster_path}" 
+              data-id="${id}"
               alt="${title}" 
               loading="lazy"          
               />
-              <p class="movie__title">${title}</p>
-              <p class="movie__genresAndReleaseDate">${finGenres} | ${releaseDate}</p>
+              <p class="movie__title">${title} data-id="${id}"</p>
+              <p class="movie__genresAndReleaseDate">${finGenres} | ${releaseDate} data-id="${id}"</p>
             </div>
           `;
       })
