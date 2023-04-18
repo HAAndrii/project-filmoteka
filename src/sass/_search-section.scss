@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin-bottom: 60px;
 
     @media screen and (min-width: 768px) {
         justify-content: left;
@@ -44,8 +45,4 @@
     color: $accent-color;
     display: block;
     font-weight: 500;
-}
-
-.pag-button__current {
-    background-color: $accent-color;
 }

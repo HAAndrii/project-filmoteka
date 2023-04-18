@@ -13,6 +13,10 @@ export const searchSectionContainer = document.querySelector(
 );
 const trendingSectionContainer = document.querySelector('.trending-container');
 const paginationSection = document.querySelector('.pagination-section');
+const searchPaginationSection = document.querySelector(
+  '.search-section__pagination'
+);
+const searchInput = document.querySelector('.search-form__input');
 
 export let queryVal = '';
 
@@ -36,6 +40,8 @@ function onHomeBtnClick() {
   trendingSectionContainer.classList.remove('visually-hidden');
   paginationSection.classList.remove('visually-hidden');
   clearSectionContainer(searchSectionContainer);
+  clearSectionContainer(searchPaginationSection);
+  searchInput.value = '';
   getTrendingMovies();
 }
 
@@ -45,6 +51,8 @@ function onFormSubmit(e) {
   trendingSectionContainer.classList.add('visually-hidden');
   paginationSection.classList.add('visually-hidden');
   clearSectionContainer(searchSectionContainer);
+  clearSectionContainer(searchPaginationSection);
+
   getFilmsByKeywords(1);
 }
 
