@@ -75,13 +75,14 @@ export function modalLocalStr() {
 
   function getDataForLocalStr(data) {
     const { title, poster_path, release_date, id, genres } = data;
-    return (dataForLS = {
+    const dataForLS = {
       title,
       poster_path,
       release_date,
       id,
       genres,
-    });
+    };
+    return dataForLS;
   }
 
   function getFilm(id) {
