@@ -1,5 +1,7 @@
-import header from './js/header';
 import getTrending from './js/getTrending';
+import header from './js/header';
+import { makePagination } from './js/pagination';
+
 import { modal } from './js/modal';
 //import modalLocalStr from './js/modalLocalStr';
 import renderLocalStr from './js/renderLocalStr';

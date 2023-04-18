@@ -141,6 +141,9 @@ pagination.addEventListener('click', e => {
   }
 });
 // Запит на сервер та робота з респонсом
+
+//export async function getTrendingMovies(page) {
+
 export default async function getTrendingMovies(page) {
   const options = {
     params: {

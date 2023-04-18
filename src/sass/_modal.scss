@@ -101,7 +101,7 @@ button {
 
   cursor: pointer;
 
-  & > img {
+  &>img {
     display: block;
     width: 150%;
     object-fit: contain;
@@ -127,7 +127,7 @@ button {
     height: 478px;
   }
 
-  & > img {
+  &>img {
     display: block;
     width: 100%;
     object-fit: cover;
@@ -150,7 +150,7 @@ button {
     display: none;
   }
 
-  & > h3 {
+  &>h3 {
     display: block;
     font-family: 'Roboto';
     font-style: normal;
@@ -174,7 +174,7 @@ button {
   padding: 0;
   margin-top: 20px;
 
-  & > li {
+  &>li {
     display: flex;
     width: 100%;
 
@@ -187,13 +187,13 @@ button {
       background-color: rgb(209, 5, 5);
     }
 
-    & > p:first-child {
+    &>p:first-child {
       margin-bottom: 8px;
       width: 50%;
       color: #8c8c8c;
     }
 
-    & > p:last-child {
+    &>p:last-child {
       width: 50%;
       line-height: 1.15;
     }
@@ -318,4 +318,5 @@ button {
   }
 
 }
+
 
