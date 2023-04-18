@@ -167,7 +167,10 @@ export default async function getTrendingMovies(page) {
     appendTrendingGallery(result);
     paginatorCreate(data, page);
     const currentPage = document.querySelector(`.pagination__button${page}`);
-    currentPage.classList.add('currentPage');
+    if (currentPage) {
+      currentPage.classList.add('currentPage');
+    }
+
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
