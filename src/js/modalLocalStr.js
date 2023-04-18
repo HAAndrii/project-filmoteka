@@ -27,14 +27,14 @@ export function modalLocalStr() {
     getFilm(filmID.textContent)
       .then(getDataForLocalStr)
       .then(addToWatchedLS)
-      .catch(console.log('error'));
+      .catch(error => console.log(error));
   }
 
   function addQueue() {
     getFilm(filmID.textContent)
       .then(getDataForLocalStr)
       .then(addToQueueLS)
-      .catch(console.log('error'));
+      .catch(error => console.log(error));
   }
 
   function addToWatchedLS(result) {
@@ -42,7 +42,7 @@ export function modalLocalStr() {
       fileWatchedLS = { ...JSON.parse(localStorage.getItem(WATCHED_LS)) };
       fileWatchedLS[result.id] = result;
       localStorage.setItem(WATCHED_LS, JSON.stringify(fileWatchedLS));
-      console.log(fileWatchedLS);
+
       Notify.info(`${result.title}: has been watched.`);
 
       return;
@@ -60,7 +60,7 @@ export function modalLocalStr() {
       fileQueueLS = { ...JSON.parse(localStorage.getItem(QUEUE_LS)) };
       fileQueueLS[result.id] = result;
       localStorage.setItem(QUEUE_LS, JSON.stringify(fileQueueLS));
-      console.log(fileQueueLS);
+
       Notify.info(`${result.title}: is added to the watch queue.`);
 
       return;
