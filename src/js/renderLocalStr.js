@@ -49,8 +49,8 @@ function appendChoiceFilm(result) {
               alt="${title}" 
               loading="lazy"          
               />
-              <p class="movie__title">${title} data-id="${id}"</p>
-              <p class="movie__genresAndReleaseDate">${finGenres} | ${releaseDate} data-id="${id}"</p>
+              <p class="movie__title" data-id="${id}">${title} </p>
+              <p class="movie__genresAndReleaseDate" data-id="${id}">${finGenres} | ${releaseDate} </p>
             </div>
           `;
       })

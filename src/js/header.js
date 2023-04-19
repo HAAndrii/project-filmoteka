@@ -4,8 +4,8 @@ import clearSectionContainer from './clearSectionContainer';
 import { getFilmsByKeywords } from './getFilmByKeywords';
 
 //=======
-import getTrendingMovies from "./getTrending";
-import { renderWatchedfilm } from "./renderLocalStr";
+import getTrendingMovies from './getTrending';
+import { renderWatchedfilm } from './renderLocalStr';
 //>>>>>>> main
 // Header refs
 const homeBtn = document.querySelector('#home-btn');
@@ -37,8 +37,12 @@ function onLibraryBtnClick() {
   libraryButtons.classList.remove('visually-hidden');
   searchForm.classList.add('visually-hidden');
   logoEl.classList.add('header-logo--library');
-  buttons.style.display = 'none'
-  renderWatchedfilm()
+  buttons.style.display = 'none';
+  clearSectionContainer(searchSectionContainer);
+  clearSectionContainer(searchPaginationSection);
+  trendingSectionContainer.classList.remove('visually-hidden');
+
+  renderWatchedfilm();
 }
 
 function onHomeBtnClick() {
@@ -47,7 +51,7 @@ function onHomeBtnClick() {
   libraryButtons.classList.add('visually-hidden');
   searchForm.classList.remove('visually-hidden');
   logoEl.classList.remove('header-logo--library');
-//<<<<<<< search-film-by-keywords
+  //<<<<<<< search-film-by-keywords
 
   trendingSectionContainer.classList.remove('visually-hidden');
   paginationSection.classList.remove('visually-hidden');
@@ -55,10 +59,10 @@ function onHomeBtnClick() {
   clearSectionContainer(searchPaginationSection);
   searchInput.value = '';
   //getTrendingMovies();
-//=======
-  buttons.style.display = 'flex'
-  getTrendingMovies()
-//>>>>>>> main
+  //=======
+  buttons.style.display = 'flex';
+  getTrendingMovies();
+  //>>>>>>> main
 }
 
 function onFormSubmit(e) {
