@@ -9,3 +9,5 @@ import modalMovie from './js/modalMovie';
 modal();
 import spinner from './js/spinner';
 import footer from './js/footer';
+import modalMovieForSearch from './js/modalMovieForSearch';
+

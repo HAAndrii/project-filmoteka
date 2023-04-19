@@ -3,14 +3,16 @@
 
 .main {
   background-color: #FfFfFf;
-  padding-bottom: 90px;
+  padding-bottom: 60px;
 }
+
 .trending-container {
   max-width: 320px;
   display: flex;
   flex-direction: column;
   padding: 20px;
   margin: 0 auto;
+
   @media screen and (min-width: 768px) {
     max-width: 768px;
     flex-direction: row;
@@ -18,11 +20,13 @@
     padding: 32px;
     gap: 32px;
   }
+
   @media screen and (min-width: 1280px) {
     min-width: 1280px;
     gap: 16px;
   }
 }
+
 .movie-card {
   width: 280px;
   font-size: 12px;
@@ -32,10 +36,12 @@
   text-align: left;
   margin-bottom: 20px;
   cursor: pointer;
+
   @media screen and (min-width: 768px) {
     width: 336px;
     margin-bottom: 0;
   }
+
   @media screen and (min-width: 1280px) {
     font-style: normal;
     font-weight: 500;
@@ -45,18 +51,22 @@
     margin-bottom: 16px;
   }
 }
+
 .movie__image {
   border-radius: 5px;
   width: 280px;
   margin-bottom: 10px;
+
   @media screen and (min-width: 768px) {
     width: 336px;
     margin-bottom: 8px;
   }
+
   @media screen and (min-width: 1280px) {
     width: 394px;
   }
 }
+
 .movie__title {
   text-transform: uppercase;
   display: block;
@@ -67,9 +77,11 @@
   text-align: left;
   height: 16px;
   overflow: hidden;
+
   @media screen and (min-width: 768px) {
     line-height: calc(16/12);
   }
+
   @media screen and (min-width: 1280px) {
     height: 24px;
     font-style: normal;
@@ -78,6 +90,7 @@
     line-height: 1.20;
   }
 }
+
 .movie__genresAndReleaseDate {
   color: #B92F2C;
   line-height: calc(14/12);
@@ -85,9 +98,11 @@
   font-weight: 500;
   letter-spacing: 0em;
   text-align: left;
+
   @media screen and (min-width: 768px) {
     line-height: calc(16/12);
   }
+
   @media screen and (min-width: 1280px) {
     font-style: normal;
     font-weight: 500;
@@ -95,10 +110,12 @@
     line-height: 1.20;
   }
 }
+
 .pagination-section {
   display: flex;
   justify-content: center;
 }
+
 .pagination__button {
   font-family: 'Roboto';
   font-style: normal;
@@ -109,6 +126,7 @@
   height: 40px;
   border: none;
   background-color: #FfFfFf;
+
   &:hover {
     color: #FfFfFf;
     background-color: #B92F2C;
@@ -117,6 +135,7 @@
     border-radius: 5px;
   }
 }
+
 .currentPage {
   color: #FfFfFf;
   background-color: #B92F2C;
@@ -130,6 +149,7 @@
   background-color: #F7F7F7;
   border-radius: 5px;
   position: relative;
+
   &:hover {
     color: #FfFfFf;
     background-color: #B92F2C;
@@ -137,10 +157,12 @@
     height: 40px;
     border-radius: 5px;
   }
-  &:hover > .pagination-arrows {
+
+  &:hover>.pagination-arrows {
     stroke: #F7F7F7;
   }
 }
+
 #prev {
   &:disabled {
     background-color: transparent;
@@ -150,13 +172,16 @@
   &:disabled:hover {
     background-color: #FfFfFf;
   }
-  &:disabled:hover > .pagination-arrows {
+
+  &:disabled:hover>.pagination-arrows {
     stroke: black;
   }
+
   color: #F7F7F7;
   background-color: #F7F7F7;
   border-radius: 5px;
   position: relative;
+
   &:hover {
     color: #FfFfFf;
     background-color: #B92F2C;
@@ -164,10 +189,12 @@
     height: 40px;
     border-radius: 5px;
   }
-  &:hover > .pagination-arrows {
+
+  &:hover>.pagination-arrows {
     stroke: #F7F7F7;
   }
 }
+
 .pagination-arrows {
   top: 12px;
   left: 12px;
