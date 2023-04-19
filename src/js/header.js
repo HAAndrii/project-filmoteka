@@ -40,6 +40,7 @@ function onLibraryBtnClick() {
   buttons.style.display = 'none';
   clearSectionContainer(searchSectionContainer);
   clearSectionContainer(searchPaginationSection);
+  searchSectionContainer.classList.add('visually-hidden');
   trendingSectionContainer.classList.remove('visually-hidden');
 
   renderWatchedfilm();
@@ -56,6 +57,7 @@ function onHomeBtnClick() {
   trendingSectionContainer.classList.remove('visually-hidden');
   paginationSection.classList.remove('visually-hidden');
   clearSectionContainer(searchSectionContainer);
+  searchSectionContainer.classList.add('visually-hidden');
   clearSectionContainer(searchPaginationSection);
   searchInput.value = '';
   //getTrendingMovies();
@@ -70,6 +72,7 @@ function onFormSubmit(e) {
   queryVal = e.currentTarget.elements.searchQuery.value;
   trendingSectionContainer.classList.add('visually-hidden');
   paginationSection.classList.add('visually-hidden');
+  searchSectionContainer.classList.remove('visually-hidden');
   clearSectionContainer(searchSectionContainer);
   clearSectionContainer(searchPaginationSection);
 
