@@ -1,7 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export function modalLocalStr() {
-  const API_KEY = 'd66303a9f2f21ddca222463dbeed564f';
+  const API_KEY = 'c5a1db41bd5eb56af64be0ab647b8aee';
   const WATCHED_LS = 'watched';
   const QUEUE_LS = 'queue';
 

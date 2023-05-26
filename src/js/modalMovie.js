@@ -2,7 +2,7 @@ import axios from 'axios';
 import { modalLocalStr } from './modalLocalStr';
 const trendingContainer = document.querySelector('.trending-container');
 const movieBackdrop = document.querySelector('#movie-backdrop');
-const apiKey = 'd66303a9f2f21ddca222463dbeed564f';
+const apiKey = 'c5a1db41bd5eb56af64be0ab647b8aee';
 const movieModal = document.querySelector('.modal-content');
 
 function appendMovieCard(data) {
