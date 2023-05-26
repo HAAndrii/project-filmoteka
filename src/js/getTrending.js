@@ -3,9 +3,9 @@ import spiner from './spinner';
 
 // Змінні)
 const url =
-  'https://api.themoviedb.org/3/trending/movie/week?api_key=d66303a9f2f21ddca222463dbeed564f';
+  'https://api.themoviedb.org/3/trending/movie/week?api_key=c5a1db41bd5eb56af64be0ab647b8aee';
 const genresUrl =
-  'https://api.themoviedb.org/3/genre/movie/list?api_key=d66303a9f2f21ddca222463dbeed564f&language=en-US';
+  'https://api.themoviedb.org/3/genre/movie/list?api_key=c5a1db41bd5eb56af64be0ab647b8aee&language=en-US';
 const container = document.querySelector('.trending-container');
 export { container };
 const buttons = document.querySelector('#pagination-buttons');

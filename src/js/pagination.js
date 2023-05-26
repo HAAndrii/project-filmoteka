@@ -8,8 +8,10 @@ const renderBtn = (value, caption = null, cls = null) =>
     caption || value
   }</button>`;
 
+let prevOnClick = null;
+
 export function makePagination(totalPages, currentPage, callback) {
-  if (totalPages < 1) {
+  if (totalPages === 0) {
     return;
   }
   const visibleButtons = Math.min(totalPages, maxVisibleBtns);
@@ -57,11 +59,17 @@ export function makePagination(totalPages, currentPage, callback) {
   searchPagination.innerHTML = buttons;
 
   const onClick = e => {
-    const { page } = e.target.dataset;
+    let { page } = e.target.dataset;
+    if (!page) {
+      page = e.target.closest('.pag-button')?.dataset?.page;
+    }
     if (page >= 1 && page <= totalPages) {
       callback(Number(page));
-      searchPagination.removeEventListener('click', onClick);
     }
   };
+  if (prevOnClick) {
+    searchPagination.removeEventListener('click', prevOnClick);
+  }
   searchPagination.addEventListener('click', onClick);
+  prevOnClick = onClick;
 }
